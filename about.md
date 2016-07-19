@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-我是一个很流弊（逗逼）的安卓搬砖工人.
+我是一个很流弊（逗逼）的安卓搬砖工人.本人现在主攻安卓开发，精通java，c++, .net, php,python,ruby等语言的拼写，擅长windows，Linux, unix, mac开关机操作。有什么得罪的地方，你们不要来打我啊。
 
 
 ## Roles
 
-Founder, ABC Organisation
+华尔街见闻安卓开发攻城狮
 
 ## Skills
 
@@ -19,22 +19,6 @@ Founder, ABC Organisation
 
 ## Achievements
 
-
-* [**This is my first achievement**](#)
-
-   Proin pellentesque malesuada mauris, quis aliquam augue vestibulum ac. Vestibulum ut feugiat nibh. Sed faucibus felis purus, sed convallis leo dictum vehicula.
-
-***
-
-* [**This is my second achievement**](#)
-
-    Proin pellentesque malesuada mauris, quis aliquam augue vestibulum ac. Vestibulum ut feugiat nibh. Sed faucibus felis purus, sed convallis leo dictum vehicula.
-
-***
-
-* [**This is my third achievement**](#)
-
-   Proin pellentesque malesuada mauris, quis aliquam augue vestibulum ac. Vestibulum ut feugiat nibh. Sed faucibus felis purus, sed convallis leo dictum vehicula
 
 
 ## Contact me
