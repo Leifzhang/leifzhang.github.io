@@ -39,3 +39,4 @@ public static String getJavaScipt(String callbackid,
 好了如果你有什么看不懂的地方下面是我github sample的超链接。
 
 [JsBridge](https://github.com/Leifzhang/Jsbridge)
+有什么问题的话可以邮件联系我，首页最下方是我的邮箱。
