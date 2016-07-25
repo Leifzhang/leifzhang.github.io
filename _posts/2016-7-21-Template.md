@@ -12,7 +12,7 @@ author: 放纵不羁爱吃肉
 
 这里我就要介绍下我们项目的解决方案了，我们可以通过拍黄片经常使用的方式去对其进行优化。通过加载前端模板，然后通过Js调用的方式去把前端需要的数据加载给前端。
 
-https://github.com/JeasonWong/NewsTemplate
+[https://github.com/JeasonWong/NewsTemplate](https://github.com/JeasonWong/NewsTemplate)
 
 这个是我同事的前端模板样式的sample，其中在Js加载这一段我对其进行了一定的优化，我采取的是预加载的方式，让webView先去加载本地HTML，然后通过addJavascriptInterface的方式去通知安卓端去加载数据，当安卓请求完数据之后再调用前端方法就可以了。
 
