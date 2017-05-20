@@ -28,12 +28,15 @@ author: 放纵不羁爱吃肉
 ### 原因其实有两点啊:
 
 #### 一、
-fresco在内存回收和释放上以及图片情况非常多的情况下是优于glide的，而且android-gif-drawable，这个控件必须要加载进一张gif之后才会告诉我们这个是不是一个有效的gif，不是特别友善。
+fresco在内存回收和释放上以及图片情况非常多的情况下是优于glide的，而且android-gif-drawable，这个控件必须要加载进一张gif之后才会告诉我们这个是不是一个有效的gif，之后我们就必须对图片进行降级操作，加载成普通的一张图片。
 
 #### 二、
-fresco可以支持动图的webP , fresco可以支持动图的webP , fresco可以支持动图的webP,重要的事情说三遍。
+fresco可以添加webP普通图片支持，同时fresco可以支持动图的webP，fresco可以支持动图的webP，fresco可以支持动图的webP，重要的事情说三遍。对于webP不了解的同学可以先给你们开一个传送门[webP](https://www.zhihu.com/question/27201061)。
 
-对于webP不了解的同学可以先给你们开一个传送门[webP](https://www.zhihu.com/question/27201061)。webP的图片格式可以把我们的流量大小砍掉最起码一半，同样一张120X90的图, JPG 10K左右的大小，而webP只有5K。5K啊！！！GIF转webP 1M的情况下可以压缩到只剩1/3。这就非常可怕了，其实我想说讲道理腾讯这次真的风光了，TPG的大小才是可怕，GIF竟然可以压缩的只剩1/10。跪拜腾讯大厂，这次方案比谷歌还屌，先刷个火箭，66666666666。
+
+同样的分辨率情况下,webP的图片格式要远比PNG,JPG的图片要小,JPG 46.1K左右的大小，而webP只有35.1K,无损压缩的PNG要有200K。这个质量压缩情况就非常乐观了。而GIF转webP 1M的情况下可以压缩到只剩1/3。其实我想说讲道理腾讯这次真的风光了，[TPG]{http://www.yxdown.com/news/201705/351469.html}的大小才是可怕，GIF竟然可以压缩的只剩1/10。跪拜腾讯大厂，这次方案比谷歌还屌，先刷个火箭，66666666666。
+
+
 
 最后大家肯定要说了啊，你不可能要求小编去约定上传格式啊，万一前端不支持webP这么办啊，还有IOS呢等等情况。这个时候我只想说广告时间。其实七牛云是允许我们约定返回的图片格式到底是什么的，而且也是支持gif转webP的，这个过程是不约束你上传图片的格式的。比方说小编上传的是JPG或者PNG，你只要约定好七牛后缀，他就会变成你想要的webP格式。
 
@@ -67,5 +70,20 @@ fresco可以支持动图的webP , fresco可以支持动图的webP , fresco可以
 #### webP等比缩放
 
 ![webP缩放](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640/format/webp)
+
+#### 数据展示
+
+
+|名称|大小|链接|
+|-------|-------|--------|
+|原图 |104K |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5|
+|原图PNG  |465K |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/format/png|
+|裁剪规则 |46.1K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5!app.adr.banner.l|
+|等比缩放 |49.7K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640|
+|居中裁剪 |53.3K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageView2/1/w/600|
+|高斯模糊 | 13.3K|  https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640x480/blur/20x5|
+|webP格式切换 |35.1K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640/format/webp|
+
+
 
 上述就是我司辣鸡安卓在开发中碰到的一些问题和瓶颈以及解决方案，并不是说技术点有多么的复杂和厉害，只是有些坑开发踩了一次也就好了，能绕过去的尽量也就绕过去了，小小短文也希望与各位共勉。
