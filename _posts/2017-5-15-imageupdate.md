@@ -4,9 +4,9 @@ title: 华尔街见闻安卓图片库升级之路
 author: 放纵不羁爱吃肉
 ---
 
-很久很久以前有一家叫华尔街见闻的公司，之后他们聘请了英俊的我。来到了我司之后，一来总是要搞一波大新闻的吗。当时我司是两套图片处理框架同时使用，[Glide](https://github.com/bumptech/glide)和[Android-Universal-Image-Loader](https://github.com/nostra13/Android-Universal-Image-Loader)，线上版本的app经常会出现一些OOM（内存溢出）的问题，原因就是两套图片处理框架会同时开辟两个不同的内存块，但是我们能使用的最大内存是固定的，两套图片库之后内存之和超过最大内存值的情况下，自然就会出现OOM的情况。这种情况下我们就要确保app内只有`一套`图片库，同时对开发人员暴露的是一个`统一`的入口方便后续业务的更新以及迭代。
+很久很久以前有一家叫华尔街见闻的公司，他们聘请了英俊的我来开发他们的App。来到了我司之后，自然是要搞一波大新闻的吗。当时我司是两套图片处理框架同时使用，[Glide](https://github.com/bumptech/glide)和[Android-Universal-Image-Loader](https://github.com/nostra13/Android-Universal-Image-Loader)，线上版本的app经常会出现一些OOM（内存溢出）的问题，原因就是两套图片处理框架会同时开辟两个不同的内存块，但是我们能使用的最大内存是固定的，两套图片库之后内存之和超过最大内存值的情况下，自然就会出现OOM的情况。这种情况下我们就要确保app内只有`一套`图片库，同时对开发人员暴露的是一个`统一`的入口方便后续业务的更新以及迭代。
 
-突然有一天，我们线上用户开始反馈说：“你们这个app好辣鸡啊，一天用掉我200M流量啊。”情况是这样的，我们小编上传的是高清无码的图片，假设一张原图是1M，只要稍微一滑动列表页就会有巨大的流量消耗产生，OMG！WTF！所幸我们图片都是上传的七牛云（广告植入的毫无痕迹），只要我们对列表图片增加图片剪切后缀，就可以进行了一波史诗鸡优化了，文末有图片剪裁的比较以及使用方法。同时真的要谢谢用户不杀之恩啊！
+有一天我们线上用户开始反馈说：“你们这个app好辣鸡啊，一天用掉我200M流量啊。”情况是这样的，我们小编上传的是高清无码的图片，假设一张原图是1M，只要稍微一滑动列表页肯定会有巨大的流量消耗产生，OMG！WTF！所幸我们图片都是上传的七牛云（广告植入的毫无痕迹），只要我们对列表图片增加图片剪切后缀，就可以进行了一波史诗鸡优化了，文末有图片剪裁的比较以及使用方法。同时真的要谢谢用户不杀之恩啊！
 
 App内的流量监控,我们现在用的是非死不可的[Stetho](https://github.com/facebook/stetho)。首先引入方案十分简单，同时这个库还是chrome插件的形式展现数据流量的东西，同时也可以对我们的api请求做一次监控。当然还有些非常酷的功能，比如还可以查看你app的sqlite，sp，是不是炒鸡酷啊，下面是配图啊。
 
@@ -14,21 +14,19 @@ App内的流量监控,我们现在用的是非死不可的[Stetho](https://githu
 
 ![stetho2](https://leifzhang.github.io/leifzhang.github.io/images/inspector-network.png)
 
-后续的版本升级迭代中，我们后续发现特定的七牛后缀是没有办法解决所有业务场景,还容易出现一些第三方的图片无法展示问题，所以类似`!app.list.thumbnail`这种后缀就被我们用另外一种方式替换。最好的情况是不同的场景根据自己的需要请求不同的图片尺寸。这个时候我们对这个裁剪规则由进行了一次小小的升级更新，按照实际业务场景去裁剪我们想要的图片尺寸大小，同时我们还发现七牛的高斯模糊规则。
+后续的版本升级迭代中，我们后续发现特定的七牛后缀是没有办法解决所有业务场景,还容易出现一些第三方的图片无法展示问题，所以类似`!app.list.thumbnail`这种后缀就被我们用另外一种方式替换。请求图片的大小应该根据不同的场景请求不同的图片尺寸。这个时候我们对这个裁剪规则由进行了一次小小的升级更新，按照实际业务场景去裁剪我们想要的图片尺寸大小，同时我们还发现七牛的高斯模糊规则。
 
 
 我司用户应该也记得去年见闻app过热的情况，这个问题其中有一部分是历史代码债务原因，另外一个原因就是我们用的[Glide](https://github.com/bumptech/glide)对gif展示会导致cpu使用率过高的问题。我们专门做过一次简单的实验，当展示一张4:3大小全屏的gif的情况下，glide的cpu使用率大概会是20%左右，而当我们把这个换成viewpager，然后你又设置了setOffscreenPageLimit，我们测试的结果应该是70以上，这个时候我已经上天了就差和太阳肩并肩。最近我在[Glide](https://github.com/bumptech/glide)的issue中也找到的gif导致cpu过高的相似答案，
 [Glide gif CPU consumption](https://github.com/bumptech/glide/issues/1604)，证明不是只有我们碰到过这个问题。
 
-我尝试过两套方案啊，第一个是[Glide](https://github.com/bumptech/glide)+ [android-gif-drawable](https://github.com/koral--/android-gif-drawable)，另外一个是我也换成非死不可的库[fresco](https://github.com/facebook/fresco)。对比结果大概是这样的:
+上述问题我尝试过两套方案啊，第一个是[Glide](https://github.com/bumptech/glide) + [android-gif-drawable](https://github.com/koral--/android-gif-drawable)，另外一个是我也换成非死不可的库[fresco](https://github.com/facebook/fresco)。对比结果大概是这样的:
 
-### 原因其实有两点啊:
+### 选择非死不可的原因其实有两点啊:
 
-#### 一、
-fresco在内存回收和释放上以及图片情况非常多的情况下是优于glide的，而且android-gif-drawable，这个控件必须要加载进一张gif之后才会告诉我们这个是不是一个有效的gif，之后我们就必须对图片进行降级操作，加载成普通的一张图片。
+#### 一、fresco在内存回收和释放上以及图片情况非常多的情况下是优于glide的，而且android-gif-drawable，这个控件必须要加载进一张gif之后才会告诉我们这个是不是一个有效的gif，之后我们就必须对图片进行降级操作，加载成普通的一张图片。
 
-#### 二、
-fresco可以添加webP普通图片支持，同时fresco可以支持动图的webP，fresco可以支持动图的webP，fresco可以支持动图的webP，重要的事情说三遍。对于webP不了解的同学可以先给你们开一个传送门[webP](https://www.zhihu.com/question/27201061)。
+#### 二、fresco可以添加webP普通图片支持，同时fresco可以支持动图的webP，fresco可以支持动图的webP，fresco可以支持动图的webP，重要的事情说三遍。对于webP不了解的同学可以先给你们开一个传送门[webP](https://www.zhihu.com/question/27201061)。
 
 同样的分辨率情况下,webP的图片格式要比PNG，JPG的图片要小。同样清晰度的一张JPG 46.1K左右的大小，而webP只有35.1K，而PNG则要有200K，客户端对图片的要求其实只有两点清晰，流量小。GIF转webP 1M的情况下可以压缩到只剩1/3。另外讲道理腾讯这次真的厉害了，他们的[TPG](http://www.yxdown.com/news/201705/351469.html)的才是最可怕，GIF竟然可以压缩的只剩1/10。跪拜腾讯大厂，这次方案比谷歌还屌，先刷个火箭，66666666666。
 
