@@ -4,8 +4,6 @@ title: Android JsBridge 混合开发
 author: 放纵不羁爱吃肉
 ---
 
-#Android JsBridge 混合开发
-
 这里我要和大家介绍的是安卓端和Js交互的通道。如何搭建简单的Js交互通道。首先先说下我吧，我做过两个JS交互方案，第一个是通过url截获的方式去和原生交互，以前大众点评是用这个方案做的JsBridge。第二个是通过webView的addJavascriptInterface方法去挂载一个Js方法。
 
 但是问题来了，我们总不能每有一个Js交互的方法就加载一个addJavascriptInterface吧。这样我们的代码就会显得很臃肿，而且和前端回调的方法也非常的困难，那么我们应该怎么做呢？
