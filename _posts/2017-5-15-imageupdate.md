@@ -43,48 +43,17 @@ author: 放纵不羁爱吃肉
 
 ## 最后我会把图片和数据对大家做一个简单的介绍和展示
 
-
-#### 原图
-
-![原图](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5)
-
-
-#### 裁剪规则
-
-
-![裁剪规则](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5!app.adr.banner.l)
-
-
-#### 等比缩放
-
-![等比缩放](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640)     
-
-#### 居中裁剪
-
-![居中裁剪](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageView2/1/w/600)
-
-
-#### 高斯模糊     
-
-![高斯模糊](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640x480/blur/20x5)
-
-
-#### webP等比缩放
-
-![webP缩放](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640/format/webp)
-
 #### 数据展示
 
-
-|名称|大小|链接|
-|-------|-------|--------|
-|原图 |104K |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5|
-|原图PNG  |465K |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/format/png|
-|裁剪规则 |46.1K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5!app.adr.banner.l|
-|等比缩放 |49.7K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640|
-|居中裁剪 |53.3K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageView2/1/w/600|
-|高斯模糊 | 13.3K|  https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640x480/blur/20x5|
-|webP格式切换 |35.1K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640/format/webp|
+|名称|大小|链接|图片|
+|-------|---------|-------------|--------|
+|原图 |104K |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5  | ![原图](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5)|
+|原图PNG  |465K |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/format/png |![PNG](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/format/png) |
+|裁剪规则 |46.1K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5!app.adr.banner.l |![裁剪规则](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5!app.adr.banner.l)|
+|等比缩放 |49.7K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640 |![等比缩放](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640) |
+|居中裁剪 |53.3K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageView2/1/w/600 |![居中裁剪](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageView2/1/w/600)|
+|高斯模糊 | 13.3K|  https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640x480/blur/20x5 |![高斯模糊](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640x480/blur/20x5)
+|webP格式切换 |35.1K  |https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640/format/webp |![webP缩放](https://wpimg.wallstcn.com/d626f9ae-c787-4012-8f41-f30dce3c1bc5?imageMogr2/thumbnail/640/format/webp)
 
 
 
